@@ -37,18 +37,13 @@ public class PlayerMovement : MonoBehaviour
 
     //player walk gravity
     void ApplyGravity() {
-        if (character_Controller.isGrounded)
-        {
-            vertical_Velocity -= gravity * Time.deltaTime;
-
+        
+        vertical_Velocity -= gravity * Time.deltaTime;
             //jump
-            PlayerJump();
-        }
-        else {
-            vertical_Velocity -= gravity * Time.deltaTime;
-        }
+        PlayerJump();
+        
+        move_Direction.y = vertical_Velocity * Time.deltaTime;
 
-        move_Direction.y = vertical_Velocity;
     }//apply gravity
 
     void PlayerJump() {
