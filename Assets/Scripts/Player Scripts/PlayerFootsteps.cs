@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerFootsteps : MonoBehaviour
 {
-    private AudioSource footstep_Sound;
+    [SerializeField]private AudioSource footstep_Sound;
     [SerializeField] private AudioClip[] footstep_Clip;
 
     private CharacterController characterController;
-    [HideInInspector] private float volume_Min, volume_Max;
+    [HideInInspector] public float volume_Min, volume_Max;
 
     private float accumulated_Distance;
     [HideInInspector] public float step_Distance;
@@ -17,7 +17,7 @@ public class PlayerFootsteps : MonoBehaviour
     {
         footstep_Sound = GetComponent<AudioSource>();
 
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponentInParent<CharacterController>();
     }
 
     // Update is called once per frame
